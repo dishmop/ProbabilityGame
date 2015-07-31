@@ -1,29 +1,31 @@
 Base path: C:/Program Files/Unity/Editor/Data
-Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-4660
+Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-3612
 Cmd: getPlatforms
 Cmd: preprocess
-  insize=990 outsize=1272 ok=1
+  insize=1060 outsize=1582 ok=1
 Cmd: compileSnippet
-  api=4 type=0 insize=7446 outsize=3508 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
+  api=4 type=0 insize=7217 outsize=3443 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
 Cmd: compileSnippet
-  api=4 type=1 insize=7446 outsize=10154 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
+  api=4 type=1 insize=7217 outsize=1769 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
 Cmd: compileSnippet
-  api=4 type=0 insize=4255 outsize=2753 kw=POINT SHADOWS_OFF ok=1
+  api=4 type=0 insize=4094 outsize=2533 kw=POINT ok=1
 Cmd: compileSnippet
-  api=4 type=1 insize=4255 outsize=6149 kw=POINT SHADOWS_OFF ok=1
+  api=4 type=1 insize=4094 outsize=2379 kw=POINT ok=1
 Cmd: compileSnippet
-  api=4 type=0 insize=6564 outsize=3508 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+  api=4 type=0 insize=3349 outsize=2533 kw= ok=1
 Cmd: compileSnippet
-  api=4 type=1 insize=6564 outsize=7416 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+  api=4 type=1 insize=3349 outsize=697 kw= ok=1
 Cmd: compileSnippet
-  api=4 type=0 insize=3508 outsize=2484 kw= ok=1
+  api=4 type=0 insize=6527 outsize=3971 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
 Cmd: compileSnippet
-  api=4 type=1 insize=3508 outsize=1314 kw= ok=1
+  api=4 type=1 insize=6527 outsize=1891 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=6375 outsize=3581 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=6375 outsize=2103 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=3574 outsize=3216 kw= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=3574 outsize=1843 kw= ok=1
 Cmd: preprocess
-  insize=443 outsize=440 ok=1
-Cmd: compileSnippet
-  api=4 type=0 insize=4063 outsize=2533 kw=DIRECTIONAL ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=4063 outsize=1623 kw=DIRECTIONAL ok=1
-Cmd: preprocess
-  insize=431 outsize=428 ok=1
+  insize=448 outsize=445 ok=1
