@@ -44,6 +44,12 @@ public class Challenge_2 : MonoBehaviour {
 			door1.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.None;
 		} else {
 			setProbabilities();
+			for( int i = 0; i<counters.Length; i++){
+				counters[i] = 0;
+				texts[i].text = ""+counters[i];
+			}
+			counter = 0;
+			text.text = "" + counter;
 			GetComponent<AudioSource>().clip = null;
 			GetComponent<AudioSource>().clip = failSound;
 			GetComponent<AudioSource>().Play();
@@ -68,6 +74,12 @@ public class Challenge_2 : MonoBehaviour {
 
 		} else {
 			setProbabilities();
+			for( int i = 0; i<counters.Length; i++){
+				counters[i] = 0;
+				texts[i].text = ""+counters[i];
+			}
+			counter = 0;
+			text.text = "" + counter;
 			GetComponent<AudioSource>().clip = null;
 			GetComponent<AudioSource>().clip = failSound;
 			GetComponent<AudioSource>().Play();

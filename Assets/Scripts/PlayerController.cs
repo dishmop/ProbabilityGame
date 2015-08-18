@@ -2,12 +2,13 @@
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
+	public int pos;
 	public BoxCollider[] portals;
 	public GameObject bullet;
 	public float bulletSpeed = 50f;
 	public float timeBetweenShots = 0.5f;
+	public int bulletCount = 100;
 
-	int bulletCount;
 	float timer;
 	// Use this for initialization
 	void Start () {
@@ -18,16 +19,22 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		timer += Time.deltaTime;
-		if (Input.GetMouseButtonDown (0) && timer >= timeBetweenShots) {
+		if (Input.GetMouseButtonDown (0) && timer >= timeBetweenShots && bulletCount > 0) {
 			shoot();
 		}
 		if (Input.GetMouseButtonDown (1)) {
 			Cursor.lockState = CursorLockMode.Locked;
 		}
+		if (Input.GetKeyDown (KeyCode.R)) {
+			Application.LoadLevel(Application.loadedLevel);
+		}
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			Application.Quit();
+		}
 	}
 
 	void shoot(){
-		bulletCount++;
+		bulletCount--;
 		GameObject bullet1 = Instantiate (bullet, transform.position, transform.rotation) as GameObject;
 		bullet1.GetComponent<Rigidbody> ().AddForce (bulletSpeed * transform.forward, ForceMode.Impulse);
 		foreach (BoxCollider portal in portals) {
