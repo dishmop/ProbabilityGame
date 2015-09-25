@@ -32,11 +32,19 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			Application.Quit();
 		}
+
+        if (Cursor.lockState != CursorLockMode.Locked)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        }
 	}
 
 	void shoot(){
 		bulletCount--;
-		GameObject bullet1 = Instantiate (bullet, transform.position, transform.rotation) as GameObject;
+		GameObject bullet1 = Instantiate (bullet, Camera.main.ViewportToWorldPoint(new Vector3(0.5f,0.5f,1f)), transform.rotation) as GameObject;
 		bullet1.GetComponent<Rigidbody> ().AddForce (bulletSpeed * transform.forward, ForceMode.Impulse);
 		foreach (BoxCollider portal in portals) {
 			portal.enabled = false;

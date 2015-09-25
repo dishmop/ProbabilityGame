@@ -5,13 +5,24 @@ public class Challenge_1 : MonoBehaviour {
 
 	public PortalEffect[] portals;
 	public float[] probabs;
-	public float rand;
+
 	private int count;
 	public AudioClip[] sounds;
+
+    public int firstcolour = -1;
+    public int secondcolour = -1;
+
+
 	// Use this for initialization
 	void Start () {
 		resetProbabilities ();
+
+        for (int i = 0; i < portals.Length; i++)
+        {
+            portals[i].i = i;
+        }
 	}
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -28,26 +39,28 @@ public class Challenge_1 : MonoBehaviour {
 
 	public void resetProbabilities(){
 		GetComponent<AudioSource>().PlayOneShot(sounds[1]);
-		foreach (PortalEffect portal in portals) {
-			portal.isChosen = false;
-		}
+
 		count = 0;
-		rand = Random.value;
-		//int first = -1;
+
+        float cumulativeprob = 0f;
+
+        float random1 = Random.value;
+        float random2 = Random.value;
+
+
+
 		for(int i = 0; i < portals.Length; i++) {
-//			if(first == i){
-//				continue;
-//			}
-			if(Random.value <= probabs[i]){
-				portals[i].isChosen = true;
-//				first = i;
-//				count++;
-//				if(count == 2){
-//					count = 0;
-//					return;
-//				}
-			}
+            cumulativeprob += probabs[i];
+
+            if (firstcolour == -1 && random1 < cumulativeprob)
+            {
+                firstcolour = i;
+            }
+
+            if (secondcolour == -1 && random2 < cumulativeprob)
+            {
+                secondcolour = i;
+            }
 		}
-//		restProbabilities ();
 	}
 }

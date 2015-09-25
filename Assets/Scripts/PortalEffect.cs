@@ -5,7 +5,6 @@ public class PortalEffect : MonoBehaviour {
 	public Transform otherPortal;
 	public Transform currentPortal;
 	public Challenge_1 chanllenge1;
-	public bool isChosen;
 	public TextMesh text;
 	public Challenge_3 challenge3;
 	public Challenge_4 challenge4;
@@ -20,6 +19,8 @@ public class PortalEffect : MonoBehaviour {
 	public Transform zombiePos1;
 	public Transform zombiePos2;
 	int bulletCount;
+
+    public int i;
 
 	// Use this for initialization
 	void Start () {
@@ -38,10 +39,24 @@ public class PortalEffect : MonoBehaviour {
 				bulletCount++;
 				text.text = ""+ bulletCount;
 			}
-			if (chanllenge1 != null && isChosen) {
-				chanllenge1.incrementCount();
+			if (chanllenge1 != null) {
+                if(chanllenge1.firstcolour == i)
+                {
+                    chanllenge1.firstcolour = -1;
+                    chanllenge1.incrementCount();
+                }
+                else if (chanllenge1.secondcolour == i)
+                {
+                    chanllenge1.secondcolour = -1;
+                    chanllenge1.incrementCount();
+                }
+                else
+                {
+                    chanllenge1.resetProbabilities();
+
+                }
+				//chanllenge1.incrementCount();
 				Destroy(coll.gameObject);
-				isChosen = false;
 				return;
 			}
 			Vector3 velocity;
@@ -74,9 +89,6 @@ public class PortalEffect : MonoBehaviour {
                 Destroy(coll.gameObject);
             }
 			
-			if (chanllenge1 != null) {
-				chanllenge1.resetProbabilities ();
-			}
 			if(challenge3 != null){
 				challenge3.incrementCounter(this);
 				challenge3.setProbabilities();
