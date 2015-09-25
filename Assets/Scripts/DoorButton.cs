@@ -3,6 +3,8 @@ using System.Collections;
 
 public class DoorButton : MonoBehaviour {
 
+    public GameObject textpanel;
+
 	public Challenge_3 challenge3;
 	public Challenge_4 challenge4;
 	// Use this for initialization
@@ -21,15 +23,20 @@ public class DoorButton : MonoBehaviour {
 			} else if (challenge4 != null) {
 				challenge4.activateButton = true;
 			}
+
+            textpanel.SetActive(true);
+            textpanel.GetComponentInChildren<UnityEngine.UI.Text>().text = "Press E to use";
 		}
 	}
-	void OnTriggerExist(Collider coll){
+	void OnTriggerExit(Collider coll){
 		if (coll.tag == "Player") {
 			if (challenge3 != null) {
 				challenge3.activateButton = false;
 			} else if (challenge4 != null) {
 				challenge4.activateButton = false;
 			}
+
+            textpanel.SetActive(false);
 		}
 	}
 }

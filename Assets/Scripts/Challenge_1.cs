@@ -10,7 +10,7 @@ public class Challenge_1 : MonoBehaviour {
 	public AudioClip[] sounds;
 	// Use this for initialization
 	void Start () {
-		restProbabilities ();
+		resetProbabilities ();
 	}
 	
 	// Update is called once per frame
@@ -26,14 +26,14 @@ public class Challenge_1 : MonoBehaviour {
 		this.count++;
 	}
 
-	public void restProbabilities(){
+	public void resetProbabilities(){
 		GetComponent<AudioSource>().PlayOneShot(sounds[1]);
 		foreach (PortalEffect portal in portals) {
 			portal.isChosen = false;
 		}
 		count = 0;
 		rand = Random.value;
-		int first = -1;
+		//int first = -1;
 		for(int i = 0; i < portals.Length; i++) {
 //			if(first == i){
 //				continue;

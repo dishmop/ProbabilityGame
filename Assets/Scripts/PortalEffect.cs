@@ -55,7 +55,7 @@ public class PortalEffect : MonoBehaviour {
 			float speed = velocity.magnitude;
 			velocity = Vector3.Reflect (velocity, currentPortal.forward);
 			velocity = currentPortal.InverseTransformDirection (velocity);
-			velocity = otherPortal.TransformDirection (velocity);
+
 			coll.GetComponent<Rigidbody> ().velocity = speed * velocity.normalized;
 			//Debug.Log ("After" + coll.GetComponent<Rigidbody> ().velocity.ToString()); 
 			//Vector3 pos  = currentPortal.position - coll.transform.position;
@@ -63,10 +63,19 @@ public class PortalEffect : MonoBehaviour {
 			//pos = currentPortal.InverseTransformDirection(pos);
 			//pos = otherPortal.TransformDirection(pos);
 			//pos += otherPortal.position;
-			coll.transform.position = otherPortal.position;
-			coll.GetComponent<Rigidbody> ().AddForce (25f * otherPortal.forward, ForceMode.Impulse);
+            if (otherPortal != null)
+            {
+                coll.transform.position = otherPortal.position;
+                velocity = otherPortal.TransformDirection(velocity);
+                coll.GetComponent<Rigidbody>().AddForce(25f * otherPortal.forward, ForceMode.Impulse);
+            }
+            else
+            {
+                Destroy(coll.gameObject);
+            }
+			
 			if (chanllenge1 != null) {
-				chanllenge1.restProbabilities ();
+				chanllenge1.resetProbabilities ();
 			}
 			if(challenge3 != null){
 				challenge3.incrementCounter(this);

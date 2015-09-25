@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		portals = GetComponent<Randomness> ().portals;
 		Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 	}
 	
 	// Update is called once per frame

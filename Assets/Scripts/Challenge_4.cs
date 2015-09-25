@@ -23,7 +23,7 @@ public class Challenge_4 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (activateButton && Input.GetKeyDown (KeyCode.Return)) {
+		if (activateButton && Input.GetKeyDown (KeyCode.E)) {
 			door.GetComponent<AudioSource> ().Play ();
 			door.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.None;
 			GetComponentInChildren<DoorButton>().enabled = false;

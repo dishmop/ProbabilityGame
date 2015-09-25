@@ -20,8 +20,8 @@ public class Challenge_3 : MonoBehaviour {
 	int counter3;
 	int counter4;
 
-	float probab1;
-	float probab2;
+//	float probab1;
+//	float probab2;
 	// Use this for initialization
 	void Start () {
 		restProb ();
@@ -30,7 +30,7 @@ public class Challenge_3 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (activateButton && Input.GetKeyDown (KeyCode.Return)) {
+		if (activateButton && Input.GetKeyDown (KeyCode.E)) {
 			door.GetComponent<AudioSource> ().Play ();
 			door.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.None;
 			GetComponentInChildren<DoorButton>().enabled = false;
@@ -45,11 +45,11 @@ public class Challenge_3 : MonoBehaviour {
 	void restProb(){
 		float ran = Random.value;
 		if (ran >= 0.5f) {
-			probab1 = prob1;
-			probab2 = prob2;
+//			probab1 = prob1;
+//			probab2 = prob2;
 		} else {
-			probab1 = prob2;
-			probab2 = prob1;
+//			probab1 = prob2;
+//			probab2 = prob1;
 		}
 	}
 
