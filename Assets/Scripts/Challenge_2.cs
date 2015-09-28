@@ -22,9 +22,10 @@ public class Challenge_2 : MonoBehaviour {
 	bool gotSecondMaterial;
 	// Use this for initialization
 	void Start () {
-		setProbabilities ();
 		materials_t = (MeshRenderer[]) materials.Clone();
-		counters = new int[materials_t.Length];
+		counters = new int[materials.Length];
+
+        setProbabilities();
 	}
 	
 	// Update is called once per frame
@@ -98,21 +99,24 @@ public class Challenge_2 : MonoBehaviour {
 	public void onHit(){
 		counter++;
 		text.text = "" + counter;
-		float num = Random.value;
-		float ini = 0f;
+		float randomnum = Random.value;
+
+        float cumulativeprob = 0.0f;
+
 		for (int i = 0; i<materials.Length; i++) {
-			if ((probs [i] + ini) >= num) {
-				changeColor.material = materials[i].material;
+            cumulativeprob += probs[i];
+
+            if (cumulativeprob > randomnum)
+            {
+                changeColor.material = materials[i].material;
 				incrementColor(materials[i].material);
-				break;
-			}else{
-				ini += probs[i];
-			}
+                break;
+            }
 		}
 	}
 
 	void incrementColor(Material mat){
-		for (int i = 0; i < materials_t.Length; i++) {
+		for (int i = 0; i < materials.Length; i++) {
 			if(mat == materials_t[i].material){
 				counters[i]++;
 				texts[i].text = ""+counters[i];
@@ -123,14 +127,13 @@ public class Challenge_2 : MonoBehaviour {
 }
 public static class Extension{
 	public static void Shuffle<T>(this List<T> list) {
-		int n = list.Count;
-		n--;
-		while (n > 1) {
-			int k = Mathf.RoundToInt(Random.value * n);
-			n--;
-			T value = list[k];
-			list[k] = list[n];
-			list[n] = value;
-		}
+
+        for (int i = list.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            T temp = list[j];
+            list[j] = list[i];
+            list[i] = temp;
+        }
 	}
 }
