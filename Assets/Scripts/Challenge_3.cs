@@ -33,6 +33,7 @@ public class Challenge_3 : MonoBehaviour {
 		if (activateButton && Input.GetKeyDown (KeyCode.E)) {
 			door.GetComponent<AudioSource> ().Play ();
 			door.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.None;
+            door.GetComponent<Rigidbody>().AddTorque(-Vector3.up, ForceMode.Impulse);
 			GetComponentInChildren<DoorButton>().enabled = false;
 			activateButton = false;
 			GameObject.Find ("Button1").GetComponent<Animator>().enabled = true;

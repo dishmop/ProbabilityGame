@@ -27,8 +27,9 @@ public class Challenge_1 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (count == 2) {
-			GetComponent<AudioSource>().PlayOneShot(sounds[0]);
+            GetComponent<AudioSource>().Play();
 			GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            GetComponent<Rigidbody>().AddTorque(-Vector3.up, ForceMode.Impulse);
 			count = -1;
 		}
 	}

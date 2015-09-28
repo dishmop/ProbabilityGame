@@ -42,6 +42,7 @@ public class Challenge_2 : MonoBehaviour {
 		if (mesh.material == materials [0].material) {
 			door1.GetComponent<AudioSource> ().Play ();
 			door1.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.None;
+            door1.GetComponent<Rigidbody>().AddTorque(-Vector3.up, ForceMode.Impulse);
 		} else {
 			setProbabilities();
 			for( int i = 0; i<counters.Length; i++){
@@ -90,6 +91,7 @@ public class Challenge_2 : MonoBehaviour {
 			GetComponent<AudioSource>().Stop();
 			door2.GetComponent<AudioSource> ().Play ();
 			door2.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.None;
+            door2.GetComponent<Rigidbody>().AddTorque(-Vector3.up, ForceMode.Impulse);
 		}
 	}
 
