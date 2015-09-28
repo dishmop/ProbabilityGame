@@ -47,6 +47,8 @@ public class Challenge_1 : MonoBehaviour {
         float random1 = Random.value;
         float random2 = Random.value;
 
+        firstcolour = -1;
+        secondcolour = -1;
 
 
 		for(int i = 0; i < portals.Length; i++) {
