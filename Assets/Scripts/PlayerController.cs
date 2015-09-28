@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour {
 	public float timeBetweenShots = 0.5f;
 	public int bulletCount = 100;
 
+    public GameObject creditspanel;
+
 	float timer;
 	// Use this for initialization
 	void Start () {
@@ -30,7 +32,7 @@ public class PlayerController : MonoBehaviour {
 			Application.LoadLevel(Application.loadedLevel);
 		}
 		if (Input.GetKeyDown (KeyCode.Escape)) {
-			Application.Quit();
+            creditspanel.SetActive(true);
 		}
 
         if (Cursor.lockState != CursorLockMode.Locked)

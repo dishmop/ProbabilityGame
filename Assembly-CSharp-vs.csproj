@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\Randomness.cs" />
      <Compile Include="Assets\Scripts\ZombieController.cs" />
      <Compile Include="Assets\door.cs" />
+     <Compile Include="Assets\escapetoquit.cs" />
      <None Include="Assets\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
      <None Include="Assets\Toon Zombie S\TSF\Shaders\TSFOutline.shader" />
      <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
