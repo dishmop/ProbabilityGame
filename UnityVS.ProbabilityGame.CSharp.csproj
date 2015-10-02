@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PortalEffect.cs" />
     <Compile Include="Assets\Scripts\Randomness.cs" />
+    <Compile Include="Assets\Scripts\SetupResolution.cs" />
     <Compile Include="Assets\Scripts\ZombieController.cs" />
     <Compile Include="Assets\door.cs" />
     <Compile Include="Assets\escapetoquit.cs" />

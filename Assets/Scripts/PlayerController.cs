@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject creditspanel;
 
+    public UnityStandardAssets.Characters.FirstPerson.FirstPersonController fpsc;
+
 	float timer;
 	// Use this for initialization
 	void Start () {
@@ -33,6 +35,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		if (Input.GetKeyDown (KeyCode.Escape)) {
             creditspanel.SetActive(true);
+            fpsc.enabled = false;
 		}
 
         if (Cursor.lockState != CursorLockMode.Locked)
