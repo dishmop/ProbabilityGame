@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Analytics;
 
 public class Challenge_2 : MonoBehaviour {
 
@@ -44,6 +45,7 @@ public class Challenge_2 : MonoBehaviour {
 			door1.GetComponent<AudioSource> ().Play ();
 			door1.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.None;
             door1.GetComponent<Rigidbody>().AddTorque(-Vector3.up, ForceMode.Impulse);
+			Analytics.CustomEvent("challenge2Shot1Complete", new Dictionary<string, object>{ { "dummy", 0} });
 		} else {
 			setProbabilities();
 			for( int i = 0; i<counters.Length; i++){
@@ -65,7 +67,7 @@ public class Challenge_2 : MonoBehaviour {
 			GetComponent<AudioSource>().clip = null;
 			GetComponent<AudioSource>().clip = succeedSound;
 			GetComponent<AudioSource>().Play();
-
+			Analytics.CustomEvent("challenge2Shot2Complete", new Dictionary<string, object>{ { "dummy", 0} });
 
 		} else if (mesh.material.color == materials [1].material.color && !gotSecondMaterial) {
 			gotSecondMaterial = true;
@@ -73,7 +75,8 @@ public class Challenge_2 : MonoBehaviour {
 			GetComponent<AudioSource>().clip = null;
 			GetComponent<AudioSource>().clip = succeedSound;
 			GetComponent<AudioSource>().Play();
-
+			Analytics.CustomEvent("challenge2Shot2Complete", new Dictionary<string, object>{ { "dummy", 0} });
+			
 		} else {
 			setProbabilities();
 			for( int i = 0; i<counters.Length; i++){

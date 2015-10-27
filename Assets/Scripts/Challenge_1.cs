@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.Analytics;
 
 public class Challenge_1 : MonoBehaviour {
 
@@ -21,8 +23,11 @@ public class Challenge_1 : MonoBehaviour {
         {
             portals[i].i = i;
         }
-	}
+        
 
+		
+	}
+	
 	
 	// Update is called once per frame
 	void Update () {
@@ -31,6 +36,7 @@ public class Challenge_1 : MonoBehaviour {
 			GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             GetComponent<Rigidbody>().AddTorque(-Vector3.up, ForceMode.Impulse);
 			count = -1;
+			Analytics.CustomEvent("challenge1Complete", new Dictionary<string, object>{ { "dummy", 0} });
 		}
 	}
 	public void incrementCount(){
