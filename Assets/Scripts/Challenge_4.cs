@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.Analytics;
+//using System.Collections.Generic;
+//using UnityEngine.Analytics;
 
 
 public class Challenge_4 : MonoBehaviour {
@@ -34,7 +34,11 @@ public class Challenge_4 : MonoBehaviour {
 			activateButton = false;
 			GameObject.Find ("Button").GetComponent<Animator>().enabled = true;
 			Invoke("stopAnimation",1.5f);
-			Analytics.CustomEvent("challenge4Complete", new Dictionary<string, object>{ { "dummy", 0} });
+//			Analytics.CustomEvent("challenge4Complete", new Dictionary<string, object>{ { "dummy", 0} });
+			GoogleAnalytics.Client.SendEventHit("gameFlow", "challenge4Complete");
+			GoogleAnalytics.Client.SendScreenHit("challenge4Complete");
+			
+			
 			
 			
 		}

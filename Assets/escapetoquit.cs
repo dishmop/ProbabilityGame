@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.Analytics;
+//using System.Collections.Generic;
+//using UnityEngine.Analytics;
 
 public class escapetoquit : MonoBehaviour {
 
@@ -19,7 +19,9 @@ public class escapetoquit : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-			Analytics.CustomEvent("quitGame", new Dictionary<string, object>{ { "gameTime", Time.timeSinceLevelLoad} });
+//			Analytics.CustomEvent("quitGame", new Dictionary<string, object>{ { "gameTime", Time.timeSinceLevelLoad} });
+			GoogleAnalytics.Client.SendTimedEventHit("gameFlow", "quitGame", "", Time.timeSinceLevelLoad);
+			
 			
             #if UNITY_EDITOR
 		            UnityEditor.EditorApplication.isPlaying = false;
